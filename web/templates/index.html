@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ComfyUI Model Manager</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>🛠️ ComfyUI Model Manager</h1>
+        <p><a href="/catalog">Каталог моделей</a></p>
+
+        <table>
+            <tr>
+                <th>Модель</th>
+                <th>Тип</th>
+                <th>Действие</th>
+            </tr>
+            {% for id, model in MODELS_MAP.items() %}
+            <tr>
+                <td>{{ model["name"] }}</td>
+                <td>{{ model["type"] }}</td>
+                <td>
+                    <button id="btn-{{ id }}" onclick="downloadModel('{{ id }}')">Загрузить</button>
+                    <div class="progress-container">
+                        <div id="progress-{{ id }}" class="progress-bar"></div>
+                    </div>
+                    <div id="status-{{ id }}" class="status"></div>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+
+</html>
