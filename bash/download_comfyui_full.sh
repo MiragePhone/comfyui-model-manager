@@ -8,12 +8,15 @@ CIVITAI_API_KEY=""  # Укажи в .env
 
 # Пути
 CHECKPOINTS_DIR="$COMFYUI_DIR/models/checkpoints"
+DIFFUSION_DIR="$COMFYUI_DIR/models/diffusion_models"
 CLIP_DIR="$COMFYUI_DIR/models/clip"
 VAE_DIR="$COMFYUI_DIR/models/vae"
 LORA_DIR="$COMFYUI_DIR/models/loras"
 CONTROLNET_DIR="$COMFYUI_DIR/models/controlnet"
 EMBEDDINGS_DIR="$COMFYUI_DIR/models/embeddings"
 UPSCALERS_DIR="$COMFYUI_DIR/models/upscale_models"
+TEXT_ENCODERS_DIR="$COMFYUI_DIR/models/text_encoders"
+
 
 # Создаём все папки
 mkdir -p "$CHECKPOINTS_DIR" "$CLIP_DIR" "$VAE_DIR" "$LORA_DIR" \
@@ -46,20 +49,27 @@ fi
 # Списки моделей: (URL, DEST_DIR, FILENAME)
 # ========================================
 declare -a MODELS_LIST=(
-    "https://huggingface.co/black-forest-labs/FLUX.1-dev/resolve/main/flux1_dev.safetensors|$CHECKPOINTS_DIR|"
-    "https://huggingface.co/black-forest-labs/FLUX.1-schnell/resolve/main/flux1_schnell.safetensors|$CHECKPOINTS_DIR|"
-    "https://civitai.com/api/download/models/565333?type=Model&format=SafeTensor&size=pruned&fp=fp16|$CHECKPOINTS_DIR|"  # WAN2.2
-    "https://huggingface.co/madebyollin/sdxl-vae-fp16-fix/resolve/main/sdxl_vae.safetensors|$VAE_DIR|sdxl_vae.safetensors"
-    "https://huggingface.co/comfyanonymous/clip_g.safetensors/resolve/main/clip_g.safetensors|$CLIP_DIR|clip_g.safetensors"
-    "https://huggingface.co/comfyanonymous/T5XXL_fp16.safetensors/resolve/main/T5XXL_fp16.safetensors|$CLIP_DIR|T5XXL_fp16.safetensors"
+    "https://huggingface.co/Comfy-Org/flux1-dev/resolve/main/flux1-dev-fp8.safetensors|$CHECKPOINTS_DIR|"
+    "https://huggingface.co/Comfy-Org/flux1-schnell/resolve/main/flux1-schnell-fp8.safetensors|$CHECKPOINTS_DIR|"
+    "https://huggingface.co/Comfy-Org/FLUX.1-Krea-dev_ComfyUI/resolve/main/split_files/diffusion_models/flux1-krea-dev_fp8_scaled.safetensors|$DIFFUSION_DIR|" 
+    "https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/vae/wan2.2_vae.safetensors|$VAE_DIR|"
+    "https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/diffusion_models/wan2.2_i2v_low_noise_14B_fp8_scaled.safetensors|$DIFFUSION_DIR|"
+    "https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/diffusion_models/wan2.2_fun_control_low_noise_14B_fp8_scaled.safetensors|$DIFFUSION_DIR|"
+    "https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/diffusion_models/wan2.2_fun_camera_low_noise_14B_fp8_scaled.safetensors|$DIFFUSION_DIR|"
+    "https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/diffusion_models/wan2.2_fun_inpaint_low_noise_14B_fp8_scaled.safetensors|$DIFFUSION_DIR|"
+    "https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/diffusion_models/wan2.2_t2v_low_noise_14B_fp8_scaled.safetensors|$DIFFUSION_DIR|"
+    "https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/text_encoders/umt5_xxl_fp8_e4m3fn_scaled.safetensors|$TEXT_ENCODERS_DIR|"
 )
 
 declare -a LORA_LIST=(
-    "https://civitai.com/api/download/models/142641|$LORA_DIR|"  # FaceDetailer
-    "https://civitai.com/api/download/models/99741|$LORA_DIR|"   # AnimateDiff
-    "https://civitai.com/api/download/models/112912|$LORA_DIR|"  # Realistic Face
-    "https://civitai.com/api/download/models/125556|$LORA_DIR|"  # Cinematic
-    "https://civitai.com/api/download/models/72951|$LORA_DIR|"   # Ghibli
+    "https://civitai.com/api/download/models/780667?type=Model&format=SafeTensor|$LORA_DIR|"
+    "https://civitai.com/api/download/models/736227?type=Model&format=SafeTensor|$LORA_DIR|"
+    "https://civitai.com/api/download/models/1524354?type=Model&format=SafeTensor|$LORA_DIR|"  
+    "https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/loras/wan2.2_i2v_lightx2v_4steps_lora_v1_low_noise.safetensors|$LORA_DIR|"  # FaceDetailer
+    "https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/loras/wan2.2_i2v_lightx2v_4steps_lora_v1_low_noise.safetensors|$LORA_DIR|"   # AnimateDiff
+    "https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/loras/wan2.2_t2v_lightx2v_4steps_lora_v1.1_high_noise.safetensors|$LORA_DIR|"  # Realistic Face
+    "https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/loras/wan2.2_t2v_lightx2v_4steps_lora_v1.1_low_noise.safetensors|$LORA_DIR|"  # Cinematic
+      # Ghibli
 )
 
 declare -a CONTROLNET_LIST=(
