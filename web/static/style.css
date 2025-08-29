@@ -1,8 +1,0 @@
-body { font-family: Arial, sans-serif; background: #f4f4f4; }
-.container { max-width: 1000px; margin: 40px auto; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-table { width: 100%; border-collapse: collapse; margin: 20px 0; }
-th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
-th { background: #4CAF50; color: white; }
-.btn-download { background: #2196F3; color: white; border: none; padding: 6px 12px; cursor: pointer; }
-.btn-delete { background: #f44336; color: white; border: none; padding: 6px 12px; cursor: pointer; }
-.markdown { line-height: 1.6; }

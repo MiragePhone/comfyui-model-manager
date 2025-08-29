@@ -71,9 +71,6 @@ declare -a MODELS_LIST=(
 )
 
 declare -a LORA_LIST=(
-    "https://civitai.com/api/download/models/780667?type=Model&format=SafeTensor|$LORA_DIR|"
-    "https://civitai.com/api/download/models/736227?type=Model&format=SafeTensor|$LORA_DIR|"
-    "https://civitai.com/api/download/models/1524354?type=Model&format=SafeTensor|$LORA_DIR|"  
     "https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/loras/wan2.2_i2v_lightx2v_4steps_lora_v1_low_noise.safetensors|$LORA_DIR|"  # FaceDetailer
     "https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/loras/wan2.2_i2v_lightx2v_4steps_lora_v1_low_noise.safetensors|$LORA_DIR|"   # AnimateDiff
     "https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/loras/wan2.2_t2v_lightx2v_4steps_lora_v1.1_high_noise.safetensors|$LORA_DIR|"  # Realistic Face
