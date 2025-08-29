@@ -3,7 +3,7 @@
 # ========================================
 # Настройки
 # ========================================
-COMFYUI_DIR="$HOME/ComfyUI"
+COMFYUI_DIR="$HOME/comfyui/ComfyUI" # Укажи в .env
 CIVITAI_API_KEY=""  # Укажи в .env
 
 # Пути
@@ -41,6 +41,15 @@ if [ -z "$CIVITAI_API_KEY" ]; then
         CIVITAI_API_KEY="$CIVITAI_TOKEN"
     else
         echo "⚠️  CIVITAI_API_KEY не задан. Ограниченный доступ к CivitAI."
+        echo ""
+    fi
+fi
+
+if [ -z "$COMFYUI_DIR" ]; then
+    if [ -n "$COMFYUI_DIR" ]; then
+        COMFYUI_DIR="$COMFYUI_DIR"
+    else
+        echo "⚠️  COMFYUI_DIR не задан. Используется $COMFYUI_DIR"
         echo ""
     fi
 fi
@@ -204,6 +213,7 @@ download_file() {
         return 1
     fi
 
+    echo "[💡] Выполнем: ${download_cmd[@]}"
     if "${download_cmd[@]}"; then
         echo "[✅] Загружено: $filename"
         # Добавляем в каталог
