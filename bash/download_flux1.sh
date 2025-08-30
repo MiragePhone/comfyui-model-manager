@@ -61,6 +61,11 @@ declare -a MODELS_LIST=(
     "https://huggingface.co/Comfy-Org/flux1-dev/resolve/main/flux1-dev-fp8.safetensors|$CHECKPOINTS_DIR|"
     "https://huggingface.co/Comfy-Org/flux1-schnell/resolve/main/flux1-schnell-fp8.safetensors|$CHECKPOINTS_DIR|"
     "https://huggingface.co/Comfy-Org/flux1-kontext-dev_ComfyUI/resolve/main/split_files/diffusion_models/flux1-dev-kontext_fp8_scaled.safetensors|$DIFFUSION_DIR|" 
+    "https://huggingface.co/Comfy-Org/Lumina_Image_2.0_Repackaged/resolve/main/split_files/vae/ae.safetensors|$VAE_DIR|"
+    "https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/clip_l.safetensors|$CLIP_DIR|"
+    "https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/t5xxl_fp8_e4m3fn_scaled.safetensors|$TEXT_ENCODERS_DIR|"
+
+
 )
 
 declare -a LORA_LIST=(
