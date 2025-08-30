@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Настройки
-CIVITAI_API_KEY="13230cf59b4e8b027994644873087942"  # ← Замени на свой API-ключ (можно оставить пустым, если не нужен)
+CIVITAI_API_KEY="xxxxxxxxxxx"  # ← Замени на свой API-ключ (можно оставить пустым, если не нужен)
 BASE_URL="https://civitai.com/api/v1/models"
 BASE_URL="https://civitai.com/api/v1/models"
 
