@@ -3,7 +3,7 @@
 # ========================================
 # Настройки
 # ========================================
-COMFYUI_DIR="$HOME/comfyui/ComfyUI" # Укажи в .env
+COMFYUI_DIR="$HOME/ComfyUI" # Укажи в .env
 CIVITAI_API_KEY=""  # Укажи в .env
 
 # Пути
